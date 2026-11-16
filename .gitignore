@@ -1,0 +1,18 @@
+# Local Android build output
+build/
+
+# Private signing material
+signing/
+*.jks
+*.keystore
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# macOS and editor files
+.DS_Store
+.idea/
+*.iml
+
