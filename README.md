@@ -2,6 +2,8 @@
 
 Nicol TV Home Preview is a remote-friendly home screen for Fire TV. It is currently installed as a separate preview beside the original Nicol TV application so new features can be tested without deleting the older version.
 
+Nicol TV Home is open-source software released under the [MIT License](LICENSE).
+
 ## Current installed version
 
 - Application name: **Nicol TV Preview**
@@ -10,6 +12,67 @@ Nicol TV Home Preview is a remote-friendly home screen for Fire TV. It is curren
 - Home on Fire target: **Nicol TV Preview**
 - Replace Home: **On**
 - Launch on Boot/Wake: **On**
+
+## Install Nicol TV
+
+Nicol TV is currently a preview for Fire TV devices that support Android APK installation. It does not replace Fire OS firmware. Some newer Amazon devices use Vega OS and do not support Android APK sideloading; this preview will not install on those devices.
+
+### Without a computer: Fire TV Downloader
+
+1. From the Fire TV home screen, choose **Find**, then **Search**.
+2. Search for **Downloader** and install **Downloader by AFTVnews** from the Amazon Appstore.
+3. If **Developer options** is hidden, open **Settings → My Fire TV → About**, highlight the name of the Fire TV device, and press **Select** seven times.
+4. Open **Settings → My Fire TV → Developer options → Install unknown apps** and turn **Downloader** On. Older Fire OS versions may call this **Apps from Unknown Sources**.
+5. Open Downloader and enter this official address:
+
+   `https://github.com/RENicolLLC/nicol-tv-home/releases/latest/download/Nicol-TV-Home-v0.5.2-preview.apk`
+
+6. When the download finishes, choose **Install**, then **Done** or **Open**.
+7. Downloader may offer to delete the downloaded APK after installation. It is safe to delete that downloaded copy because the installed application remains on the Fire TV.
+8. Follow **Make Nicol TV the Home screen** below if you want the remote's Home button to open Nicol TV.
+
+Only install Nicol TV from this repository's official GitHub release. Leave Downloader's unknown-app permission Off when you are not installing or updating Nicol TV.
+
+### With a computer: wireless ADB
+
+The Fire TV and computer must be on the same local network.
+
+1. On the Fire TV, reveal **Developer options** as described above.
+2. Open **Settings → My Fire TV → Developer options** and turn **ADB debugging** On.
+3. Find the Fire TV's address under **Settings → My Fire TV → About → Network**.
+4. On the computer, download `Nicol-TV-Home-v0.5.2-preview.apk` from the latest GitHub release.
+5. With Android Platform Tools installed, run:
+
+   ```sh
+   adb connect FIRE_TV_ADDRESS:5555
+   adb install -r Nicol-TV-Home-v0.5.2-preview.apk
+   ```
+
+6. Accept the connection prompt on the television if Fire TV displays one.
+7. When installation finishes, open **Nicol TV Preview** from the Fire TV applications screen.
+
+Replace `FIRE_TV_ADDRESS` with the address displayed by the Fire TV, such as `192.168.1.50`.
+
+### Make Nicol TV the Home screen
+
+Nicol TV can be opened like a normal application without changing the Home button. Redirecting the Home button requires a compatible home-launcher helper such as **Home on Fire**.
+
+In Home on Fire, confirm:
+
+- Target application: **Nicol TV Preview** (`com.renicol.tv.preview`)
+- Accessibility service: **On**
+- Replace Home: **On**
+- Launch on Boot/Wake: **On**
+
+The availability and behavior of home-launcher helpers can vary by Fire OS version. Nicol TV remains separately installed and does not modify the device firmware.
+
+### Update Nicol TV
+
+Repeat either installation method with the newer APK. Android will update the existing installation while preserving its locally stored settings when the application signature and package name remain the same.
+
+### Restore the standard Fire TV Home screen
+
+Open Home on Fire and turn **Replace Home** Off, or change its target away from Nicol TV. You can then uninstall **Nicol TV Preview** from **Settings → Applications → Manage Installed Applications** if desired.
 
 ## Remote navigation
 
