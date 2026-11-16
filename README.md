@@ -141,5 +141,5 @@ The project builds with the Android SDK already installed on the development Mac
 
 The signed preview APK is produced at:
 
-`build/apk/Nicol-TV-Home-v0.4-preview.apk`
+`build/apk/Nicol-TV-Home-v0.5.2-preview.apk`
 

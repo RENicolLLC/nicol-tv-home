@@ -35,9 +35,9 @@ jar cf "$BUILD_DIR/classes.jar" -C "$CLASSES_DIR" .
 "$BUILD_TOOLS/d8" --lib "$ANDROID_JAR" --min-api 28 --output "$APK_DIR" "$BUILD_DIR/classes.jar"
 cd "$APK_DIR"
 zip -q -j base-unsigned.apk classes.dex
-"$BUILD_TOOLS/zipalign" -f 4 base-unsigned.apk Nicol-TV-Home-v0.4-preview-aligned.apk
+"$BUILD_TOOLS/zipalign" -f 4 base-unsigned.apk Nicol-TV-Home-v0.5.2-preview-aligned.apk
 "$BUILD_TOOLS/apksigner" sign --ks "$KEYSTORE" --ks-key-alias nicol-preview \
   --ks-pass pass:nicol-preview-local --key-pass pass:nicol-preview-local \
-  --out Nicol-TV-Home-v0.4-preview.apk Nicol-TV-Home-v0.4-preview-aligned.apk
-"$BUILD_TOOLS/apksigner" verify --verbose Nicol-TV-Home-v0.4-preview.apk
-echo "$APK_DIR/Nicol-TV-Home-v0.4-preview.apk"
+  --out Nicol-TV-Home-v0.5.2-preview.apk Nicol-TV-Home-v0.5.2-preview-aligned.apk
+"$BUILD_TOOLS/apksigner" verify --verbose Nicol-TV-Home-v0.5.2-preview.apk
+echo "$APK_DIR/Nicol-TV-Home-v0.5.2-preview.apk"
